@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML API</title>
+  
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>Customer Churn Prediction</h1>
+
+      <form action="{{ url_for('predict') }}" method="post" class="form-grid">
+        <div class="form-column">
+          <label for="AccountWeeks">Account Weeks:</label>
+          <input type="text" id="AccountWeeks" name="AccountWeeks" placeholder="Enter Account Weeks" required>
+
+          <label for="DataPlan">Data Plan:</label>
+          <input type="text" id="DataPlan" name="DataPlan" placeholder="Enter Data Plan" required>
+
+          <label for="CustServCalls">Customer Service Calls:</label>
+          <input type="text" id="CustServCalls" name="CustServCalls" placeholder="Enter Customer Service Calls" required>
+
+          <label for="DayCalls">Day Calls:</label>
+          <input type="text" id="DayCalls" name="DayCalls" placeholder="Enter Day Calls" required>
+
+          <label for="MonthlyCharge">Monthly Charge:</label>
+          <input type="text" id="MonthlyCharge" name="MonthlyCharge" placeholder="Enter Monthly Charge" required>
+        </div>
+
+        <div class="form-column">
+          <label for="ContractRenewal">Contract Renewal:</label>
+          <input type="text" id="ContractRenewal" name="ContractRenewal" placeholder="Enter Contract Renewal" required>
+
+          <label for="DataUsage">Data Usage:</label>
+          <input type="text" id="DataUsage" name="DataUsage" placeholder="Enter Data Usage" required>
+
+          <label for="DayMins">Day Minutes:</label>
+          <input type="text" id="DayMins" name="DayMins" placeholder="Enter Day Minutes" required>
+
+          <label for="OverageFee">Overage Fee:</label>
+          <input type="text" id="OverageFee" name="OverageFee" placeholder="Enter Overage Fee" required>
+
+          <label for="RoamMins">Roaming Minutes:</label>
+          <input type="text" id="RoamMins" name="RoamMins" placeholder="Enter Roaming Minutes" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large">Predict</button>
+      </form>
+
+      <div class="output">
+        {{ prediction_text }}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
